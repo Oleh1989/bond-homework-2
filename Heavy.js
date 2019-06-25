@@ -5,6 +5,14 @@ function heavy() {
     this.damageResist = 0.2;
 }
 
+function randShots() {
+
+}
+
+randShots.getRandomInt = function(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 heavy.prototype = Object.create(Soldier.prototype);
 
 heavy.prototype.machineGunAttack = function(char, amountOfShots) {
