@@ -5,19 +5,11 @@ function heavy() {
     this.damageResist = 0.2;
 }
 
-function randShots() {
-
-}
-
-randShots.getRandomInt = function(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
 heavy.prototype = Object.create(Soldier.prototype);
 
 heavy.prototype.machineGunAttack = function(char, amountOfShots) {
     if (this.isAlive() && char.isAlive()) {
-        let damage = this.attakPower + (this.attakPower + (this._level * 0.1));
+        let damage = this._attack + (this._attack + (this._level * 0.1));
         let fullDamage = damage * amountOfShots;
         char.takeDamage(fullDamage);
         this.earnExperience(250);

@@ -12,7 +12,7 @@ doctor.prototype.heal = function(char) {
         let healPoints = this._healPower + (this._healPower * (this._level * 0.1));
         char.addHealth(healPoints);
         this.earnExperience(250);
-        console.log(this.getName + ' healed character ' + char.getName + ' for ' + healPoints + ' hp');
+        console.log(this.getName() + ' healed character ' + char.getName() + ' for ' + healPoints + ' hp');
     }
 }
 
