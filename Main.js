@@ -7,7 +7,7 @@ var sold = new Soldier('Neo');
 var heavy = new Heavy('Mr.Smith');
 
 while (sold.isAlive() && heavy.isAlive()) {
-    Soldier.handAttack(heavy);
+    sold.handAttack(heavy);
     heavy.log();
     heavy.machineGunAttack(sold, Heavy.getRandomInt(0, 5));
     sold.log();

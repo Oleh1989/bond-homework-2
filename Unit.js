@@ -2,7 +2,7 @@ function Unit(name) {
     const MAXHEALTH = 100;
     this._health = MAXHEALTH;
     this._name = name;
-    this.level = 1;
+    this._level = 1;
     this._xp = 0;
 }
 
@@ -31,10 +31,22 @@ Unit.prototype.takeDamage = function(healthAmount) {
     }
 }
 
+Unit.prototype.earnExperience = function(amount) {
+    if (this._level > 1) {
+        amount = amount - ((this._xp / this._level) * 0.1);
+    } else {
+        this._xp += amount;
+    }
+
+    if (this._xp >= 1000) {
+        this.levelUp();
+    }
+}
+
 Unit.prototype.levelUp = function() {
     this._xp -= 1000;
     this._level += 1;
-    console.log('Character takes ' + this.level + ' level');
+    console.log('Character takes ' + this._level + ' level');
 }
 
 Unit.prototype.log = function() {
